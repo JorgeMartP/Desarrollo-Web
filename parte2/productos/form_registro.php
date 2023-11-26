@@ -9,7 +9,7 @@
 <body>
     <h1 class="titulo">Gestion de Productos</h1>
     <div class="content">
-        <form action="insertar_producto.php" method="get" class="form-reg">
+        <form action="insertar_productos.php" method="post" class="form-reg">
             <div>
                 <h1 class="titulo_form"> Agregar Producto</h1>
             </div>
@@ -23,11 +23,11 @@
             </div>
             <div class="form_row">
                 <label> nombre Producto</label>
-                <input type="text" name="codigo" >
+                <input type="text" name="nom_Producto" >
             </div>
             <div class="form_row">
                 <label> Pais Origen</label>
-                <input type="text" name="codigo" >
+                <input type="text" name="Pais" >
             </div>
             <div class="form_row">
                 <label>El Producto es Importado</label>
@@ -38,15 +38,13 @@
             </div>
             <div class="form_row">
                 <label>Precio</label>
-                <input type="num" name="" >
+                <input type="num" name="precio" >
             </div>
             <div class="form_row">
-                <label> enviar</label>
-                <input type="submit" name="codigo" >
+                <input type="submit">
             </div>
             <div class="form_row">
-                <label> Resetear formulario</label>
-                <input type="reset" name="codigo" >
+                <input type="reset">
             </div>
         </form>
     </div>
