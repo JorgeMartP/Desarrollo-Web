@@ -7,8 +7,11 @@
 </head>
 <body>
 <?php
-setcookie("micookie", "LOS DATOS DE LA COOKIE", time()+45);
+setcookie("micookie", "LOS DATOS DE LA COOKIE", time()+45,"desarrollo%20web%/parte%202/cookies/");
 echo $_COOKIE["micookie"];
+
+setcookie("sel_idioma",$_GET["idioma"], time()+ 2629750);
+header("Location:cookie_idioma.php")
 ?>
 </body>
 </html>
