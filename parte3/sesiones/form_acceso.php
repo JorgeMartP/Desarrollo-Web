@@ -11,9 +11,9 @@
 <div>
     <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
         <label>Usuario:</label>
-        <input name="correo" type="email">
+        <input name="correo" type="email" require>
         <label>Contraseña:</label>
-        <input name="password" type="password"><br><br>
+        <input name="password" type="password" require><br><br>
         <input type="checkbox" name="recordar"><br>
         <label> Recordarme en este equipo</label>
         <input type="submit" name="enviar" value="ENVIAR">
