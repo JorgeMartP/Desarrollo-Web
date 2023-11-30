@@ -10,9 +10,10 @@
 
     <header>
     <?php
+    $autenticar = false;
 if(isset($_POST["enviar"])){
 try{
-    $base = new PDO("mysql:host=localhost; dbname=datos", "root", "");
+    $base = new PDO("mysql:host=localhost; dbname=datos1", "root", "");
     $base->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "SELECT * FROM datos_usuario WHERE usuario= :login AND password=:password";
     $login = htmlentities(addslashes($_POST["correo"]));
@@ -23,12 +24,16 @@ try{
     
     $resultado->execute();
     $numero_registro = $resultado->rowCount();
-    if($numero_registro!=0){
+    if($numero_registro != 0){
         session_start();
-        $_SESSION["usuario"]=$_POST["correo"];
-        header("location:form_acceso.php");
+        $_SESSION["usuario"] = $_POST["correo"];
+        //header("location:form_acceso.php");
+        $autenticar = true;
     }else{
-        header("location: form_acceso.php");
+       // header("location: form_acceso.php");
+     
+       
+       echo "LOS DATOS DE USUARIO SON INCORRECTOS";
 
     }
     
@@ -39,6 +44,11 @@ try{
 ?>
         <h1>El blog de flores</h1>
     </header>
+    <?php 
+    if($autenticar == true || isset($_COOKIE["datos_usuario"])){
+        include("perfil_usuario.php");
+    }else{
+    ?>
     <nav>
         <ul>
             <li class="selected"><a href="#">Blog</a></li>
@@ -48,17 +58,27 @@ try{
             <li class="subscribe"><a href="#">Subscribe via. RSS</a></li>
         </ul>
     </nav>
-
+<?php
+    }?>
     <h4>ACCESO AL SISTEMA</h4>
-<div>
-    <form action="#" method="post">
-        <label>Usuario:</label>
-        <input name="correo" type="email">
-        <label>Contraseña:</label>
-        <input name="password" type="password">
-        <input type="submit" name="enviar" value="ENVIAR">
-    </form>
-</div>
+<?php
+if(!isset($_SESSION["usuario"])){
+    
+}else{
+    echo"BIENVENIDO AL SISTEMA " . $_POST['correo'] ;
+}
+
+
+if(isset($_POST["recordar"])){
+    setcookie("datos_usuario", $_POST["correo"], time()+5000);
+}
+
+if($autenticar == false){
+    if(!isset($_COOKIE["datos_usuario"])){
+        include("form_acceso.php");
+    }
+}
+?>
     <section id="intro">
         <header>
             <h2>¿Amas las flores tanto como a nosotros?</h2>

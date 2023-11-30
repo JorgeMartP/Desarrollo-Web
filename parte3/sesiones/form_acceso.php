@@ -13,7 +13,9 @@
         <label>Usuario:</label>
         <input name="correo" type="email">
         <label>Contraseña:</label>
-        <input name="password" type="password">
+        <input name="password" type="password"><br><br>
+        <input type="checkbox" name="recordar"><br>
+        <label> Recordarme en este equipo</label>
         <input type="submit" name="enviar" value="ENVIAR">
     </form>
 </div>
