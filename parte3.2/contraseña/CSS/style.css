@@ -56,16 +56,36 @@ body {
     margin-bottom: 15px;
 }
 
-/* Strength Meter Styles (Adjust as needed) */
-.strength_meter {
-    margin-top: 10px;
-}
 
-.strength_meter p {
-    margin: 0;
+.strength_meter{
+	height:23px;
+    max-width: 400px;
+    width: 100%;
+	background:silver;
+	
 }
-
-.veryweak { color: #d9534f; }
-.weak { color: #f0ad4e; }
-.medium { color: #5bc0de; }
-.strong { color: #5cb85c; }
+.strength_meter div{
+	height:23px;
+	width:100%;
+	height:23px;
+	text-align:center;
+	color:black;
+	font-weight:bold;
+	line-height:23px;
+}
+.veryweak{
+	background-color: #FFA0A0;
+border-color: #F04040!important
+}
+.weak{
+background-color: #FFB78C;
+border-color: #FF853C!important;
+}
+.medium{
+background-color: #FFEC8B;
+border-color: #FC0!important;
+}
+.strong{
+background-color: #C3FF88;
+border-color: #8DFF1C!important;
+}
